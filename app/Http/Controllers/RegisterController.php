@@ -10,6 +10,8 @@ class RegisterController extends Controller
 {
     public function store(CreateUserRequest $request){
         
-        User::create($request->all());
+        $user = User::create($request->all());
+
+        return jsonResponse(data: ['user' => $user]);
     }
 }

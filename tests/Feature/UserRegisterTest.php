@@ -28,13 +28,25 @@ class UserRegisterTest extends TestCase
         # haciendo
         $response = $this->postJson("{$this->apiBase}/users", $data);
 
-        #dd(User::all());
-
         # esperando
         $response->assertStatus(200);
+        $response->assertJsonStructure(['message', 'data', 'errors', 'status']);
+        $response->assertJsonFragment(
+            [
+                'message'=> 'OK', 
+                'data'=>['user'=>[
+                                    'id'=>1,
+                                    'email' => 'email@email.com',
+                                    'name' => 'example',
+                                    'last_name'=> 'example example'
+                                ]
+                ], 'status'=>200]);
+
         $this->assertDatabaseCount('users', 1);
         $this->assertDatabaseHas('users', [
-            'email'=>'email@email.com'
+            'email'=>'email@email.com',
+            'name' => 'example',
+            'last_name'=> 'example example'
         ]);
     }
 
