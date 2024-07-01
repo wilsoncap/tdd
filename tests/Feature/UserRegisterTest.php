@@ -50,7 +50,7 @@ class UserRegisterTest extends TestCase
         ]);
     }
 
-    public function test_a_register_can_user_login(): void
+    public function test_a_registered_can_user_login(): void
     {
        #$this->withoutExceptionHandling();
         # teniendo

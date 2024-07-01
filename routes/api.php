@@ -9,3 +9,4 @@ Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login']);
 //Route::post('/login', [LoginController::class, 'login']);
 
 Route::post('/users', [App\Http\Controllers\RegisterController::class, 'store']);
+Route::put('/profile', [App\Http\Controllers\ProfileController::class, 'update']);
