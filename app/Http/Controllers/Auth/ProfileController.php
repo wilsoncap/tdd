@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
-use App\Http\Resources\UserResource;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateUSerRequest;
+use App\Http\Resources\UserResource;
 
 class ProfileController extends Controller
 {
